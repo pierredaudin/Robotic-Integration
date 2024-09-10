@@ -1,0 +1,5 @@
+motoman/valentinpoque_config
+/home/etudiant/catkin_ws/devel/.private/valentinpoque_config/cmake.lock /home/etudiant/catkin_ws/devel/./cmake.lock
+/home/etudiant/catkin_ws/devel/.private/valentinpoque_config/share/valentinpoque_config/cmake/valentinpoque_configConfig-version.cmake /home/etudiant/catkin_ws/devel/share/valentinpoque_config/cmake/valentinpoque_configConfig-version.cmake
+/home/etudiant/catkin_ws/devel/.private/valentinpoque_config/share/valentinpoque_config/cmake/valentinpoque_configConfig.cmake /home/etudiant/catkin_ws/devel/share/valentinpoque_config/cmake/valentinpoque_configConfig.cmake
+/home/etudiant/catkin_ws/devel/.private/valentinpoque_config/lib/pkgconfig/valentinpoque_config.pc /home/etudiant/catkin_ws/devel/lib/pkgconfig/valentinpoque_config.pc

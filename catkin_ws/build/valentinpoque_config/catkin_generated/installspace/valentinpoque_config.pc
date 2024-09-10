@@ -1,0 +1,8 @@
+prefix=/home/etudiant/catkin_ws/install
+
+Name: valentinpoque_config
+Description: Description of valentinpoque_config
+Version: 0.3.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
