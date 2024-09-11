@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<robot name="motoman_hc10" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find motoman_hc10_support)/urdf/hc10_macro.xacro" />
+  <xacro:include filename="$(find motoman_hc10_support)/urdf/hc10_control.xacro" />
+  <xacro:include filename="$(find motoman_hc10_support)/urdf/hc10_sensor.xacro" />
+  <xacro:motoman_hc10 prefix="" />
+  <xacro:hc10_sensor prefix="" />
+  <xacro:hc10_control prefix="" />
+</robot>
