@@ -1,6 +1,22 @@
 # Robotic Integration
 
-Cloner le repo
+Créer un environnement `catkin`
+```
+mkdir -p catkin_ws/src
+cd catkin_ws
+. /opt/ros/noetic/setup.bash
+```
+
+Cloner le dépôt contenant le modèle du robot HC10
+```
+cd src
+git clone https://github.com/ros-industrial/motoman.git
+cd ..
+catkin build
+. devel/setup.bash
+```
+
+Cloner notre repository
 ```
 git clone --branch master git@github.com:pierredaudin/Robotic-Integration.git
 cd ~/Robotic-Integration/catkin_ws/
