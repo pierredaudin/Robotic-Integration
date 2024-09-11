@@ -193,3 +193,5 @@ robot:
     - AITstar
     - ABITstar
     - BITstar
+  projection_evaluator: joints(joint_1_s,joint_2_l)
+  longest_valid_segment_fraction: 0.005

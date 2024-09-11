@@ -4,6 +4,7 @@
 <!-- |    EDITING THIS FILE BY HAND IS NOT RECOMMENDED                                 | -->
 <!-- =================================================================================== -->
 <robot name="motoman_hc10">
+    <!-- -1.570796 -->
     <!-- link list -->
     <link name="world" />
     <link name="base_link">
@@ -216,69 +217,125 @@
         <parent link="base_link" />
         <child link="base" />
     </joint>
+    <link name="sensor_link" />
+    <link name="point_cloud_frame" />
+    <gazebo reference="sensor_link">
+        <sensor name="kinect_camera" type="depth">
+            <update_rate>10</update_rate>
+            <camera>
+                <horizontal_fov>1.047198</horizontal_fov>
+                <image>
+                    <width>640</width>
+                    <height>480</height>
+                    <format>B8G8R8</format>
+                </image>
+                <clip>
+                    <near>0.05</near>
+                    <far>3</far>
+                </clip>
+            </camera>
+            <plugin filename="libgazebo_ros_openni_kinect.so" name="kinect_controller">
+                <baseline>0.1</baseline>
+                <alwaysOn>true</alwaysOn>
+                <updateRate>10</updateRate>
+                <cameraName>camera_ir</cameraName>
+                <imageTopicName>/camera/color/image_raw</imageTopicName>
+                <cameraInfoTopicName>/camera/color/camera_info</cameraInfoTopicName>
+                <depthImageTopicName>/camera/depth/image_raw</depthImageTopicName>
+                <depthImageCameraInfoTopicName>/camera/depth/camera_info</depthImageCameraInfoTopicName>
+                <pointCloudTopicName>/camera/depth/points</pointCloudTopicName>
+                <frameName>point_cloud_frame</frameName>
+                <distortion_k1>0.0</distortion_k1>
+                <distortion_k2>0.0</distortion_k2>
+                <distortion_k3>0.0</distortion_k3>
+                <distortion_t1>0.0</distortion_t1>
+                <distortion_t2>0.0</distortion_t2>
+                <pointCloudCutoff>0.16</pointCloudCutoff>
+                <pointCloudCutoffMax>10.0</pointCloudCutoffMax>
+            </plugin>
+        </sensor>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/</robotNamespace>
+        </plugin>
+    </gazebo>
+    <joint name="cloud_joint" type="fixed">
+        <origin rpy="0 0 -1.570796" xyz="0 0 0" />
+        <child link="point_cloud_frame" />
+        <parent link="tool0" />
+        <axis rpy="0 0 0" xyz="0 0 0" />
+        <limit effort="10000" velocity="1000" />
+        <dynamics damping="1.0" friction="1.0" />
+    </joint>
+    <joint name="camera_joint" type="fixed">
+        <origin rpy="0 -1.570796 0" xyz="0 0 0" />
+        <child link="sensor_link" />
+        <parent link="tool0" />
+        <axis rpy="0 0 0" xyz="0 0 0" />
+        <limit effort="10000" velocity="1000" />
+        <dynamics damping="1.0" friction="1.0" />
+    </joint>
     <transmission name="trans_joint_1_s">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="joint_1_s">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
         </joint>
         <actuator name="joint_1_s_motor">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
             <mechanicalReduction>1</mechanicalReduction>
         </actuator>
     </transmission>
     <transmission name="trans_joint_2_l">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="joint_2_l">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
         </joint>
         <actuator name="joint_2_l_motor">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
             <mechanicalReduction>1</mechanicalReduction>
         </actuator>
     </transmission>
     <transmission name="trans_joint_3_u">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="joint_3_u">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
         </joint>
         <actuator name="joint_3_u_motor">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
             <mechanicalReduction>1</mechanicalReduction>
         </actuator>
     </transmission>
     <transmission name="trans_joint_4_r">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="joint_4_r">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
         </joint>
         <actuator name="joint_4_r_motor">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
             <mechanicalReduction>1</mechanicalReduction>
         </actuator>
     </transmission>
     <transmission name="trans_joint_5_b">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="joint_5_b">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
         </joint>
         <actuator name="joint_5_b_motor">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
             <mechanicalReduction>1</mechanicalReduction>
         </actuator>
     </transmission>
     <transmission name="trans_joint_6_t">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="joint_6_t">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
         </joint>
         <actuator name="joint_6_t_motor">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
             <mechanicalReduction>1</mechanicalReduction>
         </actuator>
     </transmission>
-    <!-- <xacro:hc10_sensor prefix="" /> -->
     <gazebo>
-        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+        <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
             <robotNamespace>/</robotNamespace>
         </plugin>
     </gazebo>
