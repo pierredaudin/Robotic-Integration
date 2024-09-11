@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: motoman_hc10_support
+    relative_path: urdf/hc10.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/motoman_hc10.srdf
+  CONFIG:
+    author_name: elio
+    author_email: elio.genson@gmail.com
+    generated_timestamp: 1725974029
