@@ -20,7 +20,7 @@
   </include>
 
   <!-- Launch the sensor manager -->
-  <!-- <include file="$(dirname)/sensor_manager.launch.xml" /> -->
+  <include file="$(dirname)/sensor_manager.launch.xml" />
 
 
 </launch>
