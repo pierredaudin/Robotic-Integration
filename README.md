@@ -7,15 +7,6 @@ cd catkin_ws
 . /opt/ros/noetic/setup.bash
 ```
 
-Cloner le dépôt contenant le modèle du robot HC10
-```
-cd src
-git clone https://github.com/ros-industrial/motoman.git
-cd ..
-catkin build
-. devel/setup.bash
-```
-
 Cloner notre repository
 ```
 cd src
