@@ -1,8 +1,0 @@
-prefix=/home/etudiant/catkin_ws/devel/.private/valentinpoque_config
-
-Name: valentinpoque_config
-Description: Description of valentinpoque_config
-Version: 0.3.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
