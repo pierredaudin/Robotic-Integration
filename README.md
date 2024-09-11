@@ -18,17 +18,18 @@ catkin build
 
 Cloner notre repository
 ```
+cd src
 git clone --branch master git@github.com:pierredaudin/Robotic-Integration.git
-cd ~/Robotic-Integration/catkin_ws/
-source ~/Robotic-Integration/catkin_ws/devel/setup.bash
+cd ~/catkin_ws/
+source ~/catkin_ws/devel/setup.bash
 ```
 
 Build le repo
 ```
 catkin config --extend /opt/ros/${ROS_DISTRO} --cmake-args -DCMAKE_BUILD_TYPE=Release
 catkin build
-source ~/Robotic-Integration/catkin_ws/devel/setup.bash
-echo 'source ~/Robotic-Integration/catkin_ws/devel/setup.bash' >> ~/.bashrc
+source ~/catkin_ws/devel/setup.bash
+echo 'source ~/catkin_ws/devel/setup.bash' >> ~/.bashrc
 ```
 
 ## Environnement de simulation
