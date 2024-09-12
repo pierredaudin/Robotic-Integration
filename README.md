@@ -1,4 +1,8 @@
-# Robotic Integration
+<p align="center">
+  <img src="/img/logo.png" alt="" width="200"/>
+</p>
+
+# Scan Tools HC10
 
 Créer un environnement `catkin`
 ```
@@ -31,6 +35,11 @@ cd src/yaskawa_moveit/config/
 chmod +x traj.py
 rosrun yaskawa_moveit traj.py
 ```
+
+## Paramètres configurables
+* Hauteur du robot
+* Rayon du cercle autour de l'objet
+* Taille de l'objet
 
 ## Environnement de simulation
 
