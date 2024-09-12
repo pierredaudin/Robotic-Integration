@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.1.3)
-project(yaskawa_moveit)
+project(yaskawa_moveit_V2)
 
 find_package(catkin REQUIRED)
 

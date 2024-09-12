@@ -15,7 +15,7 @@
 
   <!-- Start Benchmark Executable -->
   <node name="$(anon moveit_benchmark)" pkg="moveit_ros_benchmarks" type="moveit_run_benchmark" args="$(arg cfg) --benchmark-planners" respawn="false" output="screen">
-    <rosparam command="load" file="$(find yaskawa_moveit)/config/ompl_planning.yaml"/>
+    <rosparam command="load" file="$(find yaskawa_moveit_V2)/config/ompl_planning.yaml"/>
   </node>
 
 </launch>

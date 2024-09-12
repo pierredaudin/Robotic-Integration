@@ -1,6 +1,6 @@
 <package>
 
-  <name>yaskawa_moveit</name>
+  <name>yaskawa_moveit_V2</name>
   <version>0.3.0</version>
   <description>
      An automatically generated package with all the configuration and launch files for using the motoman_hc10 with the MoveIt Motion Planning Framework
