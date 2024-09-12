@@ -15,12 +15,21 @@ cd ~/catkin_ws/
 source ~/catkin_ws/devel/setup.bash
 ```
 
-Build le repo
+Build le repo et lancer RViz
 ```
 catkin config --extend /opt/ros/${ROS_DISTRO} --cmake-args -DCMAKE_BUILD_TYPE=Release
 catkin build
 source ~/catkin_ws/devel/setup.bash
 echo 'source ~/catkin_ws/devel/setup.bash' >> ~/.bashrc
+roslaunch hc10_moveit_config demo.launch
+```
+
+Lancer le programme Python dans un autre terminal
+```
+source ~/bashrc
+cd src/yaskawa_moveit/config/
+chmod +x traj.py
+rosrun yaskawa_moveit traj.py
 ```
 
 ## Environnement de simulation
