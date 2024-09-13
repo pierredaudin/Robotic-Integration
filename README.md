@@ -17,7 +17,6 @@ cd src
 git clone https://github.com/ros-industrial/motoman.git
 git clone --branch master git@github.com:pierredaudin/Robotic-Integration.git
 cd ~/catkin_ws/
-source ~/catkin_ws/devel/setup.bash
 ```
 
 Build le repo et lancer RViz
