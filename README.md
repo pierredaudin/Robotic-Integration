@@ -21,9 +21,18 @@ rm -r Robotic-Integration/
 cd ..
 ```
 
-Verifier l'installation de tous les packages ROS noetic
+Verifier l'installation de toutes les dependances
 ```
-sudo apt install ros-noetic-robot-controllers
+sudo apt-get install ros-noetic-moveit-setup-assistant
+sudo apt install ros-noetic-moveit
+curl -sSL http://get.gazebosim.org | sh
+sudo apt-get install ros-noetic-gazebo-ros-control joint-state-publisher
+sudo apt-get install ros-noetic-controller-manager
+sudo apt-get install ros-noetic-ros-controllers
+sudo apt-get install ros-noetic-ros-control
+sudo apt-get install ros-noetic-robot-state-publisher
+sudo apt install ros-noetic-industrial-core
+sudo apt update
 ```
 
 Build le repo et lancer RViz
