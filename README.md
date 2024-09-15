@@ -21,6 +21,11 @@ rm -r Robotic-Integration/
 cd ..
 ```
 
+Verifier l'installation de tous les packages ROS noetic
+```
+sudo apt install ros-noetic-robot-controllers
+```
+
 Build le repo et lancer RViz
 ```
 catkin config --extend /opt/ros/${ROS_DISTRO} --cmake-args -DCMAKE_BUILD_TYPE=Release
