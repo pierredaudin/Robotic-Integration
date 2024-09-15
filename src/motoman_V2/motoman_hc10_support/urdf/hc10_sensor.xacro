@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+    <xacro:macro name="hc10_sensor" params="prefix">
+        <xacro:include filename="$(find motoman_resources)/urdf/common_materials.xacro" />
+        <link name="sensor_link">
+            <!-- Visual properties: This is how the link appears in simulation -->
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <!-- Replace 'box' with the desired shape (box, cylinder, sphere, mesh) -->
+                    <box size="0.05 0.05 0.1" />
+                    <!-- <mesh scale="0.001 0.001 0.001"
+                        filename="package://motoman_hc10_support/meshes/Kinect.stl" /> -->
+                </geometry>
+                <material name="green">
+                    <color rgba="0 0 0 1" />
+                </material>
+            </visual>
+            <visual>
+                <origin xyz="0.04 0 0" rpy="0 -1.570796 0" />
+                <geometry>
+                    <!-- Replace 'box' with the desired shape (box, cylinder, sphere, mesh) -->
+                    <cylinder radius="0.025" length="0.05" />
+                </geometry>
+
+                <material name="red">
+                    <color rgba="1 0 0 1" />
+                </material>
+            </visual>
+
+        </link>
+        <link name="point_cloud_frame">
+        </link>
+        <gazebo reference="sensor_link">
+            <sensor name="kinect_camera" type="depth">
+                <update_rate>20</update_rate>
+                <camera>
+                    <horizontal_fov>1.047198</horizontal_fov>
+                    <image>
+                        <width>640</width>
+                        <height>480</height>
+                        <format>B8G8R8</format>
+                    </image>
+                    <clip>
+                        <near>0.05</near>
+                        <far>3</far>
+                    </clip>
+                </camera>
+                <plugin name="kinect_controller" filename="libgazebo_ros_openni_kinect.so">
+                    <baseline>0.1</baseline>
+                    <alwaysOn>true</alwaysOn>
+                    <updateRate>10</updateRate>
+                    <cameraName>camera_ir</cameraName>
+                    <imageTopicName>/camera/color/image_raw</imageTopicName>
+                    <cameraInfoTopicName>/camera/color/camera_info</cameraInfoTopicName>
+                    <depthImageTopicName>/camera/depth/image_raw</depthImageTopicName>
+                    <depthImageCameraInfoTopicName>/camera/depth/camera_info</depthImageCameraInfoTopicName>
+                    <pointCloudTopicName>/camera/depth/points</pointCloudTopicName>
+                    <frameName>point_cloud_frame</frameName>
+                    <distortion_k1>0.0</distortion_k1>
+                    <distortion_k2>0.0</distortion_k2>
+                    <distortion_k3>0.0</distortion_k3>
+                    <distortion_t1>0.0</distortion_t1>
+                    <distortion_t2>0.0</distortion_t2>
+                    <pointCloudCutoff>0.16</pointCloudCutoff>
+                    <pointCloudCutoffMax>10.0</pointCloudCutoffMax>
+                </plugin>
+                <visualize>true</visualize>
+            </sensor>
+        </gazebo>
+        <joint type="fixed" name="cloud_joint">
+            <origin xyz="0 0 0" rpy="0 0 -1.570796" />
+            <child link="point_cloud_frame" />
+            <parent link="tool0" />
+            <axis xyz="0 0 0" rpy="0 0 0" />
+            <limit effort="10000" velocity="1000" />
+            <dynamics damping="1.0" friction="1.0" />
+        </joint>
+
+        <joint type="fixed" name="camera_joint">
+            <origin xyz="0 0 0" rpy="0 -1.570796 0" />
+            <child link="sensor_link" />
+            <parent link="tool0" />
+            <axis xyz="0 0 0" rpy="0 0 0" />
+            <limit effort="10000" velocity="1000" />
+            <dynamics damping="1.0" friction="1.0" />
+        </joint>
+    </xacro:macro>
+    <!-- -1.570796 -->
+</robot>
