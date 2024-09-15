@@ -47,7 +47,7 @@ roslaunch yaskawa_moveit_V2 demo_gazebo.launch
 Lancer le programme Python dans un autre terminal
 ```
 # source ~/bashrc
-cd src/yaskawa_moveit_V2/
+cd catkin_ws/src/yaskawa_moveit_V2/
 chmod +x scan.py
 rosrun yaskawa_moveit_V2 scan.py
 ```
