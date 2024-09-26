@@ -2,7 +2,6 @@
   <img src="/img/logo.png" alt="" width="200"/>
 </p>
 
-<<<<<<< Updated upstream
 Créer un environnement `catkin`
 ```
 mkdir -p catkin_ws/src
@@ -10,21 +9,7 @@ cd catkin_ws
 . /opt/ros/noetic/setup.bash
 ```
 
-Cloner le dépôt contenant le modèle du robot HC10
-```
-cd src
-git clone https://github.com/ros-industrial/motoman.git
-cd ..
-catkin build
-. devel/setup.bash
-```
-
 Cloner notre repository
-=======
-# Scan Tools HC10
-
-Créer un environnement `catkin`
->>>>>>> Stashed changes
 ```
 mkdir -p catkin_ws/src
 cd catkin_ws
